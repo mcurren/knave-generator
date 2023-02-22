@@ -15,7 +15,10 @@ const character = useCharacterStore();
         min="1"
         max="10"
         :value="character.sheet.level"
-        @input="(event) => character.changeSheet('level', event.target.value)"
+        @input="
+          (event) =>
+            character.changeSheet('level', parseInt(event.target.value))
+        "
       />
     </div>
   </section>
