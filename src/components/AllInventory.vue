@@ -100,7 +100,7 @@ export default {
       >
         <span
           v-if="item.type === 'weapon'"
-          class="inventory-label"
+          class="inventory-label editable"
           contenteditable
           spellcheck="false"
         >
