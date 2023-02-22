@@ -77,9 +77,6 @@ h2 {
 h2:after {
   content: ":";
 }
-/* .trait__value {
-  flex: 1;
-} */
 p {
   font-size: 1.25rem;
 }
