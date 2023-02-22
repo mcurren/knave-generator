@@ -18,16 +18,20 @@ export default {
       result: false,
     };
   },
+  computed: {
+    rollDice() {
+      return rollDice(1, 20)[0];
+    },
+  },
   methods: {
     generate() {
-      const roll = rollDice(1, 20)[0];
       let result = false;
       if (this.table.roll.weighted) {
         result = this.table.items.find((item) =>
-          item.results.includes(roll)
+          item.results.includes(this.rollDice)
         ).value;
       } else {
-        result = this.table.items[roll - 1];
+        result = this.table.items[this.rollDice - 1];
       }
       this.result = result;
       this.handleChange(this.table.sheet.id, this.result);
@@ -38,11 +42,6 @@ export default {
   },
   mounted() {
     if (!this.value) {
-      this.generate();
-    }
-  },
-  updated() {
-    if (typeof this.value === "undefined") {
       this.generate();
     }
   },
@@ -64,14 +63,14 @@ export default {
 article {
   display: flex;
   align-items: baseline;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.25rem;
 }
 header {
-  width: 150px;
+  width: 10rem;
 }
 h2 {
-  font-size: 1em;
-  margin-right: 0.5em;
+  font-size: 1rem;
+  margin-right: 0.5rem;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -82,6 +81,6 @@ h2:after {
   flex: 1;
 } */
 p {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 </style>

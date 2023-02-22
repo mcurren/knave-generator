@@ -19,7 +19,6 @@ export default {
   methods: {
     onSelect(event) {
       const weapon = this.gearStore.weapons.items[event.value];
-      console.log(weapon);
       this.characterStore.addToInventory(weapon, true);
     },
   },
@@ -40,13 +39,13 @@ export default {
 <style>
 :root {
   --vs-search-input-color: none transparent;
-  --vs-font-size: 1.2em;
-  --vs-dropdown-option-padding: 10px 15px;
+  --vs-font-size: 1.2rem;
+  --vs-dropdown-option-padding: 0.667rem 1rem;
   --vs-dropdown-option--active-bg: var(--vt-c-blue);
   --vs-dropdown-max-height: none;
 }
 .v-select {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 .v-select .vs__search::placeholder,
 .v-select .vs__dropdown-toggle,
@@ -60,10 +59,10 @@ export default {
   fill: var(--color-background);
 }
 .v-select .vs__dropdown-toggle {
-  padding: 5px 5px 9px;
+  padding: 0.333rem 0.333rem 0.6rem;
 }
 .v-select .vs__dropdown-option {
   white-space: normal;
-  font-size: 1.1em;
+  font-size: 1.1rem;
 }
 </style>

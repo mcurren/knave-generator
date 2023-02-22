@@ -1,8 +1,19 @@
-<script setup>
-import SingleAbility from "./SingleAbility.vue";
+<script>
+import { mapStores } from "pinia";
 import { useCharacterStore } from "@/stores/sheet.js";
+import SingleAbility from "./SingleAbility.vue";
 
-const character = useCharacterStore();
+export default {
+  computed: {
+    ...mapStores(useCharacterStore),
+    abilities() {
+      return this.characterStore.sheet.abilities;
+    },
+  },
+  components: {
+    SingleAbility,
+  },
+};
 
 // TODO: add function to switch ability scores
 </script>
@@ -14,12 +25,14 @@ const character = useCharacterStore();
     </header>
     <div class="abilities-grid">
       <SingleAbility
-        v-for="(item, index) in character.sheet.abilities"
+        v-for="(item, index) in abilities"
         :key="index"
         :label="item.label"
         :id="item.id"
         :value="item.modifier"
-        @abilityChange="({ id, value }) => character.changeAbility(id, value)"
+        @abilityChange="
+          ({ id, value }) => this.characterStore.changeAbility(id, value)
+        "
       />
     </div>
   </section>
@@ -35,12 +48,18 @@ const character = useCharacterStore();
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
 }
-@media (min-width: 660px) {
+@media (min-width: 44rem) {
   .abilities-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (min-width: 980px) {
+@media (min-width: 65.333rem) {
+  .abilities-grid {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+@media print {
   .abilities-grid {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
