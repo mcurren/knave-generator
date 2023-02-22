@@ -4,11 +4,6 @@ import { rollDice } from "@/stores/rollDice.js";
 import { useCharacterStore } from "@/stores/sheet.js";
 
 export default {
-  methods: {
-    generate() {
-      this.characterStore.changeSheet("maxHp", this.diceRoll);
-    },
-  },
   computed: {
     ...mapStores(useCharacterStore),
     hitDice() {
@@ -21,13 +16,32 @@ export default {
       return rollDice(1, 8, this.hitDice, true);
     },
   },
+  methods: {
+    generate() {
+      this.characterStore.changeSheet("maxHp", this.diceRoll);
+    },
+    levelUp() {
+      const prevMaxHp = this.maxHp;
+      if (this.maxHp && this.diceRoll[0] < prevMaxHp) {
+        this.characterStore.changeSheet("maxHp", [prevMaxHp - 1]);
+      } else {
+        this.characterStore.changeSheet("maxHp", this.diceRoll);
+      }
+    },
+  },
   mounted() {
     if (!this.maxHp) {
       this.generate();
     }
   },
-  updated() {
-    this.generate();
+  watch: {
+    hitDice(newVal, oldVal) {
+      if (newVal > oldVal) {
+        this.levelUp();
+      } else {
+        this.generate();
+      }
+    },
   },
 };
 </script>
