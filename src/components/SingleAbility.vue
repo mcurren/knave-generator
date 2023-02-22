@@ -1,5 +1,6 @@
 <script>
 import { rollDice } from "@/stores/rollDice.js";
+import SwapAbility from "./SwapAbility.vue";
 
 export default {
   props: {
@@ -12,11 +13,18 @@ export default {
       required: true,
     },
     value: {
-      // type: [Number, Boolean],
+      type: [Number, Boolean],
+      required: true,
+    },
+    canSwap: {
+      type: Boolean,
       required: true,
     },
   },
   emits: ["ability-change"],
+  components: {
+    SwapAbility,
+  },
   data() {
     return {
       results: false,
@@ -56,26 +64,29 @@ export default {
 
 <template>
   <article :class="`ability ability--${id}`">
-    <div class="ability__body">
-      <div v-if="defense" class="ability__defense">
-        <label>Defense</label>
-        <p>{{ defense }}</p>
+    <div class="ability-frame">
+      <div class="ability__body">
+        <div v-if="defense" class="ability__defense">
+          <label>Defense</label>
+          <p>{{ defense }}</p>
+        </div>
+      </div>
+      <header>
+        <h2>{{ label }}</h2>
+      </header>
+      <div class="ability__body">
+        <div v-if="bonus" class="ability__bonus">
+          <label>Bonus</label>
+          <p>{{ bonus }}</p>
+        </div>
       </div>
     </div>
-    <header>
-      <h2>{{ label }}</h2>
-    </header>
-    <div class="ability__body">
-      <div v-if="bonus" class="ability__bonus">
-        <label>Bonus</label>
-        <p>{{ bonus }}</p>
-      </div>
-    </div>
+    <SwapAbility v-if="canSwap" :id="id" />
   </article>
 </template>
 
 <style scoped>
-.ability {
+.ability-frame {
   border: 0.133rem solid var(--color-border);
   border-top-width: 3px;
   border-bottom-width: 3px;

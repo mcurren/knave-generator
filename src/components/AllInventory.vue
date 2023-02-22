@@ -20,7 +20,7 @@ export default {
       let max = false;
       const constitution = this.characterStore.sheet.abilities.find(
         (item) => item.id === "constitution"
-      ).modifier;
+      ).bonus;
       if (constitution) {
         max = constitution + 10;
       }

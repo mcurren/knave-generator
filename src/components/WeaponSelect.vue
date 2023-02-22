@@ -1,7 +1,5 @@
 <script>
 import vSelect from "vue-select";
-import "vue-select/dist/vue-select.css";
-
 import { mapStores } from "pinia";
 import { useCharacterStore } from "@/stores/sheet.js";
 import { useStartingGearStore } from "@/stores/tables/startingGear.js";
@@ -32,6 +30,7 @@ export default {
   <v-select
     :options="selectOptions"
     placeholder="Select A Weapon"
+    class="weapon-select"
     @option:selected="onSelect"
   ></v-select>
 </template>
@@ -44,24 +43,24 @@ export default {
   --vs-dropdown-option--active-bg: var(--vt-c-blue);
   --vs-dropdown-max-height: none;
 }
-.v-select {
+.weapon-select {
   margin-bottom: 2rem;
 }
-.v-select .vs__search::placeholder,
-.v-select .vs__dropdown-toggle,
-.v-select .vs__dropdown-menu {
+.weapon-select .vs__search::placeholder,
+.weapon-select .vs__dropdown-toggle,
+.weapon-select .vs__dropdown-menu {
   background: var(--color-heading);
   border: none;
   color: var(--color-background);
 }
-.v-select .vs__clear,
-.v-select .vs__open-indicator {
+.weapon-select .vs__clear,
+.weapon-select .vs__open-indicator {
   fill: var(--color-background);
 }
-.v-select .vs__dropdown-toggle {
+.weapon-select .vs__dropdown-toggle {
   padding: 0.333rem 0.333rem 0.6rem;
 }
-.v-select .vs__dropdown-option {
+.weapon-select .vs__dropdown-option {
   white-space: normal;
   font-size: 1.1rem;
 }

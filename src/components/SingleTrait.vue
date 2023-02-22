@@ -54,7 +54,7 @@ export default {
       <h2>{{ table.label }}</h2>
     </header>
     <div v-if="value" class="trait__value">
-      <p contenteditable spellcheck="false">{{ value }}</p>
+      <p contenteditable spellcheck="false" class="editable">{{ value }}</p>
     </div>
   </article>
 </template>
@@ -77,17 +77,7 @@ h2 {
 h2:after {
   content: ":";
 }
-/* .trait__value {
-  flex: 1;
-} */
 p {
   font-size: 1.25rem;
-}
-p:after {
-  display: inline-block;
-  padding-left: 0.75rem;
-  content: "\270E";
-  font-size: 0.75em;
-  transform: rotate(90deg) translateX(-0.3625rem);
 }
 </style>
