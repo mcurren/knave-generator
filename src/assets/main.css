@@ -34,11 +34,29 @@ a,
   } */
 }
 
-
 .editable:after {
   display: inline-block;
   padding-left: 0.75rem;
   content: "\270E";
   font-size: 0.75em;
   transform: rotate(90deg) translateX(-0.3625rem);
+}
+
+.ability {
+  position: relative;
+}
+.ability-swap {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-top: -0.75rem;
+  margin-left: -3rem;
+}
+@media (hover: hover) {
+  .ability-swap {
+    display: none;
+  }
+  .ability:hover .ability-swap {
+    display: block;
+  }
 }

@@ -17,7 +17,7 @@ import CharacterName from "@/components/CharacterName.vue";
         <h2>XP</h2>
       </header>
       <div>
-        <input type="number" min="0" max="100" step="50" size="4" />
+        <input type="number" min="0" max="100" step="50" size="4" disabled />
       </div>
     </section>
     <CharacterLevel />
