@@ -17,8 +17,6 @@ export default {
     SingleAbility,
   },
 };
-
-// TODO: add function to switch ability scores
 </script>
 
 <template>
