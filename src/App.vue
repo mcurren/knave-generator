@@ -1,4 +1,6 @@
 <script setup>
+import "vue-select/dist/vue-select.css";
+
 import AllAbilities from "@/components/AllAbilities.vue";
 import AllHealth from "@/components/AllHealth.vue";
 import AllTraits from "@/components/AllTraits.vue";
@@ -124,6 +126,10 @@ import CharacterName from "@/components/CharacterName.vue";
   .health-armor-grid {
     grid-template-columns: 3fr 2fr;
     justify-items: left;
+  }
+  .ability-swap,
+  .weapon-select {
+    display: none;
   }
 }
 </style>

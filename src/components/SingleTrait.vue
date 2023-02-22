@@ -54,7 +54,7 @@ export default {
       <h2>{{ table.label }}</h2>
     </header>
     <div v-if="value" class="trait__value">
-      <p>{{ value }}</p>
+      <p contenteditable spellcheck="false" class="editable">{{ value }}</p>
     </div>
   </article>
 </template>

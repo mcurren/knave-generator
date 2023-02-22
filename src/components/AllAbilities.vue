@@ -9,6 +9,9 @@ export default {
     abilities() {
       return this.characterStore.sheet.abilities;
     },
+    canSwap() {
+      return this.characterStore.sheet.canSwapAbility;
+    },
   },
   components: {
     SingleAbility,
@@ -29,7 +32,8 @@ export default {
         :key="index"
         :label="item.label"
         :id="item.id"
-        :value="item.modifier"
+        :value="item.bonus"
+        :canSwap="canSwap"
         @abilityChange="
           ({ id, value }) => this.characterStore.changeAbility(id, value)
         "

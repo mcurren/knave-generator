@@ -99,10 +99,9 @@ export const useCharacterStore = defineStore("character", () => {
         bonus: false,
       },
     ],
+    canSwapAbility: true,
     inventory: [],
   });
-
-  const hasSwappedAbilities = false;
 
   function changeSheet(key, value) {
     sheet[key] = value;
@@ -113,7 +112,17 @@ export const useCharacterStore = defineStore("character", () => {
   }
 
   function changeAbility(key, value) {
-    sheet.abilities.find(({ id }) => id === key).modifier = value;
+    sheet.abilities.find(({ id }) => id === key).bonus = value;
+  }
+
+  function swapAbilities(thisId, targetId) {
+    const thisBonus = sheet.abilities.find(({ id }) => id === thisId).bonus;
+    const targetBonus = sheet.abilities.find(({ id }) => id === targetId).bonus;
+
+    sheet.abilities.find(({ id }) => id === thisId).bonus = targetBonus;
+    sheet.abilities.find(({ id }) => id === targetId).bonus = thisBonus;
+
+    sheet.canSwapAbility = false;
   }
 
   function addToInventory(value, toTop = false) {
@@ -126,10 +135,10 @@ export const useCharacterStore = defineStore("character", () => {
 
   return {
     sheet,
-    hasSwappedAbilities,
     changeSheet,
     changeTrait,
     changeAbility,
+    swapAbilities,
     addToInventory,
   };
 });
