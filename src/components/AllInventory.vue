@@ -121,24 +121,24 @@ export default {
 
 <style scoped>
 .inventory {
-  min-width: 320px;
-  max-width: 520px;
+  min-width: 21.333rem;
+  max-width: 34.667rem;
 }
 .inventory-list {
   display: grid;
   grid-auto-rows: 1fr;
-  gap: 0.5em;
-  font-size: 1.25em;
+  gap: 0.5rem;
+  font-size: 1.25rem;
 }
 .inventory-list__item {
-  border: 1px dashed var(--color-border);
-  padding: 0.25em;
+  border: 0.067rem dashed var(--color-border);
+  padding: 0.25rem;
   display: flex;
   justify-content: space-between;
   align-content: flex-start;
   flex-wrap: wrap;
 }
 .inventory-list__item > * {
-  padding: 0 0.25em;
+  padding: 0 0.25rem;
 }
 </style>

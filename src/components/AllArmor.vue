@@ -59,11 +59,11 @@ export default {
 <style scoped>
 section {
   text-align: center;
-  min-width: 130px;
-  max-width: 140px;
+  min-width: 8.667rem;
+  max-width: 9.333rem;
 }
 article {
-  border: 2px solid var(--color-border);
+  border: 0.133rem solid var(--color-border);
   border-radius: 50% 50% 50% 50% / 5% 5% 95% 95%;
   margin: 0;
   text-align: center;
@@ -76,30 +76,29 @@ article > div {
   justify-content: center;
 }
 label {
-  font-size: 0.85em;
-  opacity: 0.65;
+  font-size: 0.85rem;
   display: none;
 }
 .armor__defense {
-  height: 90px;
+  height: 6rem;
 }
 .armor__defense p {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 600;
   line-height: 1;
 }
 .armor__bonus {
-  border-top: 2px solid var(--color-border);
-  height: 60px;
+  border-top: 0.133rem solid var(--color-border);
+  height: 4rem;
 }
 .armor__bonus p {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1;
 }
 .armor__bonus p:before {
   content: "+";
   display: inline-block;
-  margin-left: -0.25em;
+  margin-left: -0.25rem;
 }
 </style>

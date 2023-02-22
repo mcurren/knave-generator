@@ -6,8 +6,7 @@ import { useCharacterStore } from "@/stores/sheet.js";
 export default {
   methods: {
     generate() {
-      const value = rollDice(1, 8, this.hitDice, true);
-      this.characterStore.changeSheet("maxHp", value);
+      this.characterStore.changeSheet("maxHp", this.diceRoll);
     },
   },
   computed: {
@@ -17,6 +16,9 @@ export default {
     },
     maxHp() {
       return this.characterStore.sheet.maxHp[0];
+    },
+    diceRoll() {
+      return rollDice(1, 8, this.hitDice, true);
     },
   },
   mounted() {
@@ -60,12 +62,12 @@ export default {
 
 <style scoped>
 .health {
-  min-width: 140px;
-  max-width: 180px;
+  min-width: 9.333rem;
+  max-width: 12rem;
 }
-@media (min-width: 600px) {
+@media (min-width: 40rem) {
   .health {
-    max-width: 260px;
+    max-width: 17.333rem;
   }
 }
 section > header {
@@ -75,28 +77,42 @@ section > header {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 0.75fr 0.75fr;
-  gap: 1em;
+  gap: 1rem;
 }
 .current-hp {
   grid-row: 3 / span 2;
 }
-@media (min-width: 600px) and (max-width: 759px) {
+@media (min-width: 40rem) and (max-width: 50.6) {
   .health-grid {
     display: grid;
     grid-template-columns: 2fr 3fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1em;
+    gap: 1rem;
   }
   .current-hp {
     grid-row: auto / span 2;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 64rem) {
   .health-grid {
     display: grid;
     grid-template-columns: 2fr 3fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1em;
+    gap: 1rem;
+  }
+  .current-hp {
+    grid-row: auto / span 2;
+  }
+}
+@media print {
+  .health {
+    max-width: 17.333rem;
+  }
+  .health-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
   }
   .current-hp {
     grid-row: auto / span 2;
@@ -104,18 +120,18 @@ section > header {
 }
 
 article {
-  border: 2px solid var(--color-border);
-  border-width: 3px 2px;
-  border-radius: 15px;
+  border: 0.133rem solid var(--color-border);
+  border-width: 0.2rem 0.133rem;
+  border-radius: 1rem;
   text-align: center;
   overflow: hidden;
 }
 article > header h2 {
-  font-size: 0.85em;
+  font-size: 0.85rem;
   line-height: 1;
   font-weight: 700;
-  padding: 1em 1.15em 0.75em;
-  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 1.15rem 0.75rem;
+  border-bottom: 0.067rem solid var(--color-border);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -123,7 +139,7 @@ article:last-child {
   margin-bottom: 0;
 }
 .health__value {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.2;
 }
