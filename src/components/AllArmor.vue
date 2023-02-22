@@ -64,6 +64,7 @@ section {
 }
 article {
   border: 0.133rem solid var(--color-border);
+  border-width: 0.2rem 0.267rem 0.133rem;
   border-radius: 50% 50% 50% 50% / 5% 5% 95% 95%;
   margin: 0;
   text-align: center;
@@ -88,7 +89,7 @@ label {
   line-height: 1;
 }
 .armor__bonus {
-  border-top: 0.133rem solid var(--color-border);
+  border-top: 0.5rem double var(--color-border);
   height: 4rem;
 }
 .armor__bonus p {

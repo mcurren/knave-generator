@@ -86,7 +86,8 @@ export default {
   <section class="inventory">
     <header class="section-header">
       <h2>
-        Inventory <span>({{ currentSlots }} / {{ maxSlots }})</span>
+        Inventory
+        <span>({{ maxSlots }} max)</span>
       </h2>
     </header>
     <WeaponSelect v-if="!inventoryWeapon" />
@@ -97,7 +98,15 @@ export default {
         class="inventory-list__item"
         :style="`grid-row: auto / span ${item.slots}`"
       >
-        <span class="inventory-label">{{ item.label }}</span>
+        <span
+          v-if="item.type === 'weapon'"
+          class="inventory-label"
+          contenteditable
+          spellcheck="false"
+        >
+          {{ item.label }}
+        </span>
+        <span v-else class="inventory-label">{{ item.label }}</span>
         <span v-if="item.damage" class="inventory-damage">
           {{ item.damage }} damage
         </span>
@@ -120,6 +129,16 @@ export default {
 </template>
 
 <style scoped>
+header h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+header h2 span {
+  font-family: var(--system-font-stack);
+  font-size: 0.6em;
+  font-weight: 600;
+}
 .inventory {
   min-width: 21.333rem;
   max-width: 34.667rem;
