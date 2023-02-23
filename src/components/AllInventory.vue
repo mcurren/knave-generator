@@ -4,6 +4,7 @@ import { rollDice } from "@/stores/rollDice.js";
 import { useCharacterStore } from "@/stores/sheet.js";
 import { useStartingGearStore } from "@/stores/tables/startingGear.js";
 import WeaponSelect from "./WeaponSelect.vue";
+import SingleInventory from "./SingleInventory.vue";
 
 export default {
   computed: {
@@ -78,7 +79,7 @@ export default {
       this.rollGeneralGear();
     }
   },
-  components: { WeaponSelect },
+  components: { WeaponSelect, SingleInventory },
 };
 </script>
 
@@ -92,33 +93,15 @@ export default {
     </header>
     <WeaponSelect v-if="!inventoryWeapon" />
     <div class="inventory-list">
-      <div
+      <SingleInventory
         v-for="(item, index) in inventory"
         :key="index"
-        class="inventory-list__item"
-        :style="`grid-row: auto / span ${item.slots}`"
-      >
-        <span
-          v-if="item.type === 'weapon'"
-          class="inventory-label editable"
-          contenteditable
-          spellcheck="false"
-        >
-          {{ item.label }}
-        </span>
-        <span v-else class="inventory-label">{{ item.label }}</span>
-        <span v-if="item.damage" class="inventory-damage">
-          {{ item.damage }} damage
-        </span>
-        <span v-if="item.hands" class="inventory-damage">
-          {{ item.hands }} handed
-        </span>
-        <span v-if="item.quality" class="inventory-quality">
-          <span v-for="(item, index) in item.quality" :key="index">
-            &cir;
-          </span>
-        </span>
-      </div>
+        :item="item"
+        @inventoryEdit="
+          ({ oldValue, newValue }) =>
+            characterStore.editInventoryLabel(oldValue, newValue)
+        "
+      />
       <div
         v-for="index in emptySlots"
         :key="index"
@@ -148,16 +131,5 @@ header h2 span {
   grid-auto-rows: 1fr;
   gap: 0.5rem;
   font-size: 1.25rem;
-}
-.inventory-list__item {
-  border: 0.067rem dashed var(--color-border);
-  padding: 0.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-content: flex-start;
-  flex-wrap: wrap;
-}
-.inventory-list__item > * {
-  padding: 0 0.25rem;
 }
 </style>

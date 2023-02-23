@@ -133,6 +133,10 @@ export const useCharacterStore = defineStore("character", () => {
     }
   }
 
+  function editInventoryLabel(oldValue, newValue) {
+    sheet.inventory.find((item) => item.label === oldValue).label = newValue;
+  }
+
   return {
     sheet,
     changeSheet,
@@ -140,5 +144,6 @@ export const useCharacterStore = defineStore("character", () => {
     changeAbility,
     swapAbilities,
     addToInventory,
+    editInventoryLabel,
   };
 });

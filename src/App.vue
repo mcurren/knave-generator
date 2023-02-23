@@ -94,7 +94,7 @@ import CharacterName from "@/components/CharacterName.vue";
   }
   .inventory {
     grid-column: 2 / span 1;
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 3;
   }
 }
 
