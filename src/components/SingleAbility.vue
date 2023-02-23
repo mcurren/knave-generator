@@ -98,7 +98,7 @@ export default {
 header h2 {
   font-size: 0.9rem;
   line-height: 1;
-  font-weight: 700;
+  font-weight: 600;
   padding: 0.75rem 1.15rem 0.6rem;
   border: 0.067rem solid var(--color-border);
   border-width: 0.067rem 0 0.067rem 0;
@@ -118,6 +118,7 @@ label {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1;
+  color: var(--color-heading);
 }
 .ability__bonus {
   padding: 1rem 1rem 1rem;
@@ -129,6 +130,7 @@ label {
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1;
+  color: var(--color-heading);
 }
 .ability__bonus p:before {
   content: "+";

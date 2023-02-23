@@ -42,14 +42,16 @@ a,
   transform: rotate(90deg) translateX(-0.3625rem);
 }
 
+
 .ability {
   position: relative;
+  /* cursor: pointer; */
 }
 .ability-swap {
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-top: -0.75rem;
+  margin-top: -1.1rem;
   margin-left: -3rem;
 }
 @media (hover: hover) {

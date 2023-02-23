@@ -66,18 +66,19 @@ article {
   margin-bottom: 0.25rem;
 }
 header {
-  width: 10rem;
+  width: 8rem;
 }
 h2 {
   font-size: 1rem;
   margin-right: 0.5rem;
   font-weight: 600;
+  color: var(--color-heading);
   text-transform: uppercase;
 }
 h2:after {
   content: ":";
 }
 p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 </style>

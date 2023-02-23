@@ -142,8 +142,9 @@ article {
 }
 article > header h2 {
   font-size: 0.85rem;
+  font-weight: 600;
   line-height: 1;
-  font-weight: 700;
+  color: var(--color-heading);
   padding: 1rem 1.15rem 0.75rem;
   border-bottom: 0.067rem solid var(--color-border);
   text-transform: uppercase;
@@ -156,5 +157,6 @@ article:last-child {
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.2;
+  color: var(--color-heading);
 }
 </style>

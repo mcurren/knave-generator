@@ -55,7 +55,8 @@ import CharacterName from "@/components/CharacterName.vue";
   content: ":";
 }
 .page-header input {
-  font-size: 1.5em;
+  font-size: 1.5rem;
+  font-weight: 500;
   background: none transparent;
   border: 0.067rem solid var(--color-border);
   border-radius: 0.2rem;
@@ -66,6 +67,7 @@ import CharacterName from "@/components/CharacterName.vue";
 
 .section-header {
   font-family: "Pirata One";
+  color: var(--color-heading);
   margin: 0.5rem 0;
 }
 .section-header h2 {
@@ -116,6 +118,13 @@ import CharacterName from "@/components/CharacterName.vue";
 }
 
 @media print {
+  .page-header section {
+    align-items: baseline;
+  }
+  .page-header input {
+    font-size: 2rem;
+    border: none;
+  }
   .main-grid {
     grid-template-columns: 1fr 1fr;
   }

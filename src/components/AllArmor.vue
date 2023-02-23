@@ -87,6 +87,7 @@ label {
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1;
+  color: var(--color-heading);
 }
 .armor__bonus {
   border-top: 0.5rem double var(--color-border);
@@ -96,6 +97,7 @@ label {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1;
+  color: var(--color-heading);
 }
 .armor__bonus p:before {
   content: "+";

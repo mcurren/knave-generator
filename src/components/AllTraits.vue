@@ -31,5 +31,8 @@ section > div {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  /* border: 1px dotted var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem; */
 }
 </style>

@@ -32,7 +32,7 @@ export default {
 <template>
   <vSelect
     :options="options"
-    placeholder="swap"
+    placeholder="Swap"
     class="ability-swap"
     @option:selected="handleSwap"
   />
@@ -43,21 +43,23 @@ export default {
   --vs-search-input-color: none transparent;
   --vs-font-size: 0.9rem;
   --vs-dropdown-option-padding: 0.133rem 0.333rem;
-  --vs-dropdown-option--active-bg: var(--vt-c-blue);
+  --vs-dropdown-option--active-bg: var(--vt-c-dark-pink);
+  --vs-dropdown-option--active-color: var(--vt-c-white);
   --vs-dropdown-max-height: none;
   --vs-dropdown-min-width: 6rem;
+  --vs-text-color: #f4f4f4;
   width: var(--vs-dropdown-min-width);
 }
 .ability-swap .vs__search::placeholder,
 .ability-swap .vs__dropdown-toggle,
 .ability-swap .vs__dropdown-menu {
-  background: var(--color-heading);
+  background: var(--vt-c-pink);
   border: none;
-  color: var(--color-background);
+  color: var(--vs-text-color);
 }
 .ability-swap .vs__clear,
 .ability-swap .vs__open-indicator {
-  fill: var(--color-background);
+  fill: var(--vs-text-color);
 }
 .ability-swap .vs__dropdown-menu {
   width: var(--vs-dropdown-min-width);
