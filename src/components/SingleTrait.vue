@@ -39,6 +39,11 @@ export default {
     handleChange(id, value) {
       this.$emit("trait-change", { id, value });
     },
+    editTrait(event) {
+      event.target.blur();
+      // console.log(event);
+      this.handleChange(this.table.sheet.id, event.target.innerText);
+    },
   },
   mounted() {
     if (!this.value) {
@@ -54,7 +59,14 @@ export default {
       <h2>{{ table.label }}</h2>
     </header>
     <div v-if="value" class="trait__value">
-      <p contenteditable spellcheck="false" class="editable">{{ value }}</p>
+      <p
+        contenteditable
+        spellcheck="false"
+        class="editable"
+        @keydown.enter="editTrait"
+      >
+        {{ value }}
+      </p>
     </div>
   </article>
 </template>
