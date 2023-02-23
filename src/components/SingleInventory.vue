@@ -1,4 +1,9 @@
 <script>
+import CircleIcon from "@/components/icons/CircleIcon.vue";
+import ForehandIcon from "@/components/icons/ForehandIcon.vue";
+import BackhandIcon from "@/components/icons/BackhandIcon.vue";
+import SwordIcon from "@/components/icons/SwordIcon.vue";
+
 export default {
   props: {
     item: {
@@ -7,6 +12,11 @@ export default {
     },
   },
   emits: ["inventory-edit"],
+  computed: {
+    totalQuality() {
+      return this.item.quality;
+    },
+  },
   methods: {
     editInventory(event) {
       event.target.blur();
@@ -16,6 +26,12 @@ export default {
       this.$emit("inventory-edit", { oldValue, newValue });
     },
   },
+  components: {
+    CircleIcon,
+    ForehandIcon,
+    BackhandIcon,
+    SwordIcon,
+  },
 };
 </script>
 
@@ -24,7 +40,7 @@ export default {
     class="inventory-list__item"
     :style="`grid-row: auto / span ${item.slots}`"
   >
-    <span
+    <p
       v-if="!['armor', 'armorBonus'].includes(item.type)"
       class="inventory-label editable"
       contenteditable
@@ -32,17 +48,20 @@ export default {
       @keydown.enter="editInventory"
     >
       {{ item.label }}
-    </span>
-    <span v-else class="inventory-label">{{ item.label }}</span>
+    </p>
+    <p v-else class="inventory-label">{{ item.label }}</p>
 
     <span v-if="item.damage" class="inventory-damage">
-      {{ item.damage }} damage
+      <SwordIcon :alt="`Does d${item.damage} damage`" /> {{ item.damage }}
     </span>
-    <span v-if="item.hands" class="inventory-damage">
-      {{ item.hands }} handed
+    <span v-if="item.hands" class="inventory-hands">
+      <ForehandIcon v-if="item.hands" :alt="`${item.hands}-handed`" />
+      <BackhandIcon v-if="item.hands > 1" :alt="`${item.hands}-handed`" />
     </span>
     <span v-if="item.quality" class="inventory-quality">
-      <span v-for="(item, index) in item.quality" :key="index"> &cir; </span>
+      <span v-for="(item, index) in item.quality" :key="index"
+        ><CircleIcon :alt="`Has ${totalQuality} quality`"
+      /></span>
     </span>
   </div>
 </template>
@@ -58,5 +77,19 @@ export default {
 }
 .inventory-list__item > * {
   padding: 0 0.3625rem;
+}
+.inventory-list__item > span {
+  color: var(--vt-c-black-mute);
+}
+.inventory-list__item svg {
+  width: 1.25rem;
+  margin: 0 0.125rem;
+}
+.inventory-damage,
+.inventory-hands,
+.inventory-quality,
+.inventory-quality > span {
+  display: flex;
+  align-items: center;
 }
 </style>
