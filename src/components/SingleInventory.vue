@@ -71,8 +71,10 @@ export default {
       {{ item.hands }}
     </span>
     <span v-if="item.quality" class="inventory-quality">
-      <span v-for="(item, index) in item.quality" :key="index">
-        <CircleIcon :alt="`Has ${totalQuality} quality`" />
+      <span>
+        <span v-for="(item, index) in item.quality" :key="index">
+          <CircleIcon :alt="`Has ${totalQuality} quality`" />
+        </span>
       </span>
       {{ item.quality }}
     </span>
@@ -99,9 +101,18 @@ export default {
   color: var(--color-text);
   margin-left: auto;
 }
+.inventory-list__item
+  .icon:not(.inventory-label ~ .icon, .inventory-quality .icon) {
+  margin-right: 0.25rem;
+}
+.inventory-list__item .inventory-quality > span {
+  margin-right: 0.25rem;
+}
+.inventory-list__item .inventory-quality .icon {
+  margin-right: 0;
+}
 .inventory-list__item svg {
   width: 1.25rem;
-  margin: 0 0.125rem;
 }
 .inventory-quality > span {
   display: flex;
