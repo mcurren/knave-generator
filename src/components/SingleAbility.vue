@@ -105,6 +105,7 @@ header h2 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--color-heading);
 }
 label {
   font-size: 0.85rem;
@@ -118,7 +119,7 @@ label {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1;
-  color: var(--color-heading);
+  color: var(--color-text);
 }
 .ability__bonus {
   padding: 1rem 1rem 1rem;

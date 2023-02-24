@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <span :style="`color: ${props.color}`" class="icon icon--edit">
+  <span :style="`color: ${props.color}`" class="icon icon--vertical">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="20"
@@ -17,7 +17,7 @@ const props = defineProps({
     >
       <title id="title">{{ props.alt }}</title>
       <path
-        d="M204 852h59l336-336-59-59-336 336v59Zm573-394L598 279l49-49q25-25 59.5-25t59.5 25l60 60q24 24 24 59.5T826 409l-49 49Zm-59 59L299 936H120V757l419-419 179 179Zm-148-30-30-30 59 59-29-29Z"
+        d="M96 960v-72h768v72H96Zm192-336v-96h384v96H288ZM96 264v-72h768v72H96Z"
         fill="currentColor"
       />
     </svg>

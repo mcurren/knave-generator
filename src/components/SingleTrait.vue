@@ -1,5 +1,6 @@
 <script>
 import { rollDice } from "@/stores/rollDice.js";
+import EditIcon from "@/components/icons/EditIcon.vue";
 
 export default {
   props: {
@@ -45,6 +46,9 @@ export default {
       this.handleChange(this.table.sheet.id, event.target.innerText);
     },
   },
+  components: {
+    EditIcon,
+  },
   mounted() {
     if (!this.value) {
       this.generate();
@@ -54,7 +58,7 @@ export default {
 </script>
 
 <template>
-  <article :class="`trait trait--${table.sheet.id}`">
+  <article :class="`trait trait--${table.sheet.id} edit-icon-hide`">
     <header>
       <h2>{{ table.label }}</h2>
     </header>
@@ -67,6 +71,7 @@ export default {
       >
         {{ value }}
       </p>
+      <EditIcon />
     </div>
   </article>
 </template>
@@ -92,5 +97,9 @@ h2:after {
 }
 p {
   font-size: 1.2rem;
+}
+.trait__value {
+  display: flex;
+  align-items: center;
 }
 </style>

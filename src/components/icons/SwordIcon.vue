@@ -1,22 +1,25 @@
 <script setup>
 const props = defineProps({
   alt: String,
+  color: String,
 });
 </script>
 
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="24"
-    viewBox="0 96 960 960"
-    width="24"
-    aria-labelledby="title"
-    role="group"
-  >
-    <title id="title">{{ props.alt }}</title>
-    <path
-      d="M762 960 645 844l-88 88-28-28q-23-23-23-57t23-57l169-169q23-23 57-23t57 23l28 28-88 88 116 117q12 12 12 28t-12 28l-50 50q-12 12-28 12t-28-12Zm118-628L426 786l5 4q23 23 23 57t-23 57l-28 28-88-88-117 116q-12 12-28 12t-28-12l-50-50q-12-12-12-28t12-28l116-117-88-88 28-28q23-23 57-23t57 23l4 5 454-454h160v160ZM334 473l24-23 23-24-23 24-24 23Zm-56 57L80 332V172h160l198 198-57 56-174-174h-47v47l174 174-56 57Zm92 199 430-430v-47h-47L323 682l47 47Zm0 0-24-23-23-24 23 24 24 23Z"
-      fill="currentColor"
-    />
-  </svg>
+  <span :style="`color: ${props.color}`" class="icon icon--sword">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="20"
+      viewBox="0 96 960 960"
+      width="20"
+      aria-labelledby="title"
+      role="group"
+    >
+      <title id="title">{{ props.alt }}</title>
+      <path
+        d="M762 960 645 844l-88 88-28-28q-23-23-23-57t23-57l169-169q23-23 57-23t57 23l28 28-88 88 116 117q12 12 12 28t-12 28l-50 50q-12 12-28 12t-28-12Zm118-628L426 786l5 4q23 23 23 57t-23 57l-28 28-88-88-117 116q-12 12-28 12t-28-12l-50-50q-12-12-12-28t12-28l116-117-88-88 28-28q23-23 57-23t57 23l4 5 454-454h160v160ZM334 473l24-23 23-24-23 24-24 23Zm-56 57L80 332V172h160l198 198-57 56-174-174h-47v47l174 174-56 57Zm92 199 430-430v-47h-47L323 682l47 47Zm0 0-24-23-23-24 23 24 24 23Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
 </template>

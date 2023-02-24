@@ -6,6 +6,7 @@ import { useStartingGearStore } from "@/stores/tables/startingGear.js";
 import WeaponSelect from "./WeaponSelect.vue";
 import SingleInventory from "./SingleInventory.vue";
 
+// TODO: add empty inventory slots to sheet and make editable.
 export default {
   computed: {
     ...mapStores(useCharacterStore, useStartingGearStore),
