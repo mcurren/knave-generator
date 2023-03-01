@@ -7,7 +7,7 @@ const character = useCharacterStore();
 <template>
   <section class="name">
     <header class="section-header">
-      <h2>Character Name</h2>
+      <h2><span class="hide-mobile">Character</span> Name</h2>
     </header>
     <div>
       <input
@@ -20,9 +20,6 @@ const character = useCharacterStore();
 </template>
 
 <style scoped>
-section {
-  flex-wrap: wrap;
-}
 h2 {
   white-space: nowrap;
 }

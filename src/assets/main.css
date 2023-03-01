@@ -7,11 +7,40 @@
   font-weight: normal;
 }
 
+*:focus-visible {
+  outline: 2px solid var(--vt-c-green);
+}
+
 a,
 .green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
+}
+
+.btn {
+  border: 2px solid var(--vt-c-pink);
+  border-radius: 2rem;
+  background: var(--color-background);
+  color: var(--vt-c-pink);
+  padding: 0.4rem 1.25rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  will-change: color, background;
+  transition: all 0.2s ease;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:focus-visible {
+  background: var(--vt-c-pink);
+  color: var(--color-background);
+}
+
+@media (max-width: 63.938rem) {
+  .hide-mobile {
+    display: none;
+  }
 }
 
 @media (hover: hover) {
@@ -20,7 +49,7 @@ a,
   }
 }
 
-@media (min-width: 68.267rem) {
+@media (min-width: 64rem) {
   body {
     display: flex;
     place-items: center;
@@ -31,7 +60,7 @@ a,
   padding: 0 0.4rem;
   cursor: text;
   border-radius: 0.3rem;
-  outline: var(--color-outline-edit) solid 1px;
+  outline: var(--color-outline-edit) solid 2px;
   outline-color: var(--color-outline-edit);
   outline-style: solid;
   outline-offset: -2px;
@@ -39,7 +68,12 @@ a,
   color: var(--color-heading);
 }
 .editable:focus-visible {
-  outline-color: var(--vt-c-pink);
+  outline-color: var(--vt-c-green);
+}
+@media print {
+  .editable {
+    outline: 0;
+  }
 }
 
 /* .ability {

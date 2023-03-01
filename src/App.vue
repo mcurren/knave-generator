@@ -11,20 +11,27 @@ import CharacterName from "@/components/CharacterName.vue";
 </script>
 
 <template>
-  <header class="page-header">
-    <section class="level">
-      <header class="section-header">
-        <h2>XP</h2>
-      </header>
-      <div>
-        <input type="number" min="0" max="100" step="50" size="4" disabled />
-      </div>
-    </section>
-    <CharacterLevel />
-    <CharacterName />
+  <header class="page-header hide-print">
+    <h1>Knave 1.0 Character Generator</h1>
+    <div class="button-group">
+      <button class="btn" onclick="window.print()">Print</button>
+      <button class="btn" onclick="location.reload()">New Character</button>
+    </div>
   </header>
 
   <main>
+    <div class="sheet-header">
+      <section class="xp">
+        <header class="section-header">
+          <h2>XP</h2>
+        </header>
+        <div>
+          <input type="number" min="0" max="100" step="50" size="4" disabled />
+        </div>
+      </section>
+      <CharacterLevel />
+      <CharacterName />
+    </div>
     <AllAbilities />
     <div class="main-grid">
       <div class="health-armor-grid">
@@ -35,27 +42,88 @@ import CharacterName from "@/components/CharacterName.vue";
       <AllInventory />
     </div>
   </main>
+
+  <footer class="page-footer hide-print"></footer>
 </template>
 
 <style>
-.page-header {
-  line-height: 1.5;
+header.page-header {
+  margin: 0 0 calc(var(--section-spacing) * 1.5);
+  color: var(--vt-c-pink);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
-.page-header section {
+header.page-header h1 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  /* color: inherit; */
+}
+
+header.page-header .button-group button {
+  margin-right: 1rem;
+}
+@media (min-width: 59rem) {
+  header.page-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  header.page-header .button-group {
+    flex: 0 1 auto;
+    margin: auto 0 auto 3rem;
+  }
+  header.page-header .button-group button {
+    margin: 0 0 0 1rem;
+  }
+}
+
+.sheet-header {
+  display: grid;
+  gap: 0.75rem;
+  margin: var(--section-spacing) 0;
+  grid-template: "xp level" "name name";
+  justify-items: stretch;
+}
+.sheet-header section {
   display: flex;
   align-items: center;
-  margin-right: var(--section-spacing);
 }
-.page-header header {
+.sheet-header .xp {
+  grid-area: xp;
+}
+.sheet-header .level {
+  grid-area: level;
+}
+.sheet-header .name {
+  grid-area: name;
+}
+.sheet-header > section > div {
+  flex: auto;
+}
+.sheet-header input {
+  width: 100%;
+  display: block;
+}
+@media (min-width: 48rem) {
+  .sheet-header {
+    grid-template: "xp level name name";
+    gap: 1.5rem;
+  }
+}
+@media print, (min-width: 64rem) {
+  .sheet-header {
+    grid-template: "xp level name name name name";
+    gap: 2rem;
+  }
+}
+
+.sheet-header header {
   margin: 0 0.5rem 0 0;
   line-height: 1;
 }
-.page-header header h2:after {
+.sheet-header header h2:after {
   content: ":";
 }
-.page-header input {
+.sheet-header input {
   font-size: 1.5rem;
   font-weight: 500;
   background: none transparent;
@@ -66,19 +134,20 @@ import CharacterName from "@/components/CharacterName.vue";
   line-height: 1;
 }
 @media (min-width: 64rem) {
-  .page-header,
-  .page-header section {
+  .sheet-header,
+  .sheet-header section {
     flex-wrap: nowrap;
   }
-  .page-header section.name,
-  .page-header section.name div,
-  .page-header section.name input {
+  .sheet-header section.name,
+  .sheet-header section.name div,
+  .sheet-header section.name input {
     width: 100%;
     margin: 0;
   }
 }
 
-.section-header {
+.section-header,
+.page-header h1 {
   font-family: "Pirata One";
   color: var(--color-heading);
   margin: 0 0 0.5rem;
@@ -125,14 +194,14 @@ import CharacterName from "@/components/CharacterName.vue";
 }
 
 @media print {
-  .page-header,
-  .page-header section {
+  .sheet-header,
+  .sheet-header section {
     flex-wrap: nowrap;
   }
-  .page-header section {
+  .sheet-header section {
     align-items: baseline;
   }
-  .page-header input {
+  .sheet-header input {
     font-size: 2rem;
     border: none;
   }
