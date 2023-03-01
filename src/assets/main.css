@@ -3,8 +3,7 @@
 #app {
   max-width: 66rem;
   margin: 0 auto;
-  padding: 2rem;
-
+  padding: var(--section-spacing);
   font-weight: normal;
 }
 
@@ -41,11 +40,6 @@ a,
 }
 .editable:focus-visible {
   outline-color: var(--vt-c-pink);
-}
-@media print {
-  .editable {
-    outline: 0;
-  }
 }
 
 /* .ability {
@@ -86,16 +80,6 @@ a,
 }
 
 .user-action {
-  /* background-color: var(--vt-c-white);
-  border: 2px solid var(--vt-c-pink);
-  border-radius: 2rem;
-  padding: 0.5rem 1rem; */
   color: var(--vt-c-pink);
   font-weight: 500;
-}
-
-@media print {
-  .print-hide {
-    display: none;
-  }
 }

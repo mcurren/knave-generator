@@ -45,7 +45,7 @@ export default {
 
 <style scoped>
 .abilities {
-  margin: 2em 0;
+  margin: var(--section-spacing) 0;
 }
 @media (min-width: 65.333rem) {
   .abilities header {

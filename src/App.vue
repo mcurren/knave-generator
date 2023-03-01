@@ -46,10 +46,11 @@ import CharacterName from "@/components/CharacterName.vue";
 .page-header section {
   display: flex;
   align-items: center;
-  margin-right: 1.75rem;
+  margin-right: var(--section-spacing);
 }
 .page-header header {
-  margin-right: 0.5rem;
+  margin: 0 0.5rem 0 0;
+  line-height: 1;
 }
 .page-header header h2:after {
   content: ":";
@@ -80,7 +81,7 @@ import CharacterName from "@/components/CharacterName.vue";
 .section-header {
   font-family: "Pirata One";
   color: var(--color-heading);
-  margin: 0.5rem 0;
+  margin: 0 0 0.5rem;
 }
 .section-header h2 {
   font-size: 2.6rem;
@@ -88,9 +89,9 @@ import CharacterName from "@/components/CharacterName.vue";
 }
 
 .main-grid {
-  margin: 2rem 0;
+  margin: var(--section-spacing) 0;
   display: grid;
-  gap: 2rem;
+  gap: var(--section-spacing);
 }
 @media (min-width: 45rem) and (max-width: 63.999rem) {
   .main-grid {
@@ -113,14 +114,8 @@ import CharacterName from "@/components/CharacterName.vue";
 .health-armor-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: var(--section-spacing);
   justify-items: center;
-  margin-bottom: 2rem;
-}
-@media (min-width: 44rem) {
-  .health-armor-grid {
-    gap: 2em;
-  }
 }
 @media (min-width: 64rem) {
   .health-armor-grid {
