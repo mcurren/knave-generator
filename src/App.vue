@@ -43,7 +43,17 @@ import CharacterName from "@/components/CharacterName.vue";
     </div>
   </main>
 
-  <footer class="page-footer hide-print"></footer>
+  <footer class="page-footer hide-print">
+    <p>
+      <a
+        href="https://www.drivethrurpg.com/product/250888/Knave"
+        target="_blank"
+        >Knave 1.0</a
+      >
+      by Ben Milton <span class="sep">|</span> Site by
+      <a href="https://curren.me" target="_blank">michaelopolis</a>
+    </p>
+  </footer>
 </template>
 
 <style>
@@ -58,7 +68,6 @@ header.page-header h1 {
   line-height: 1.2;
   /* color: inherit; */
 }
-
 header.page-header .button-group button {
   margin-right: 1rem;
 }
@@ -74,6 +83,13 @@ header.page-header .button-group button {
   header.page-header .button-group button {
     margin: 0 0 0 1rem;
   }
+}
+
+.page-footer {
+  font-size: 0.9rem;
+}
+.page-footer .sep {
+  padding: 0 0.5rem;
 }
 
 .sheet-header {
