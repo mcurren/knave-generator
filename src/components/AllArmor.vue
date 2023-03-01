@@ -62,6 +62,11 @@ section {
   min-width: 8.667rem;
   max-width: 9.333rem;
 }
+/* @media (min-width: 45rem) {
+  section {
+    text-align: left;
+  }
+} */
 article {
   border: 0.133rem solid var(--color-border);
   border-width: 0.2rem 0.267rem 0.133rem;

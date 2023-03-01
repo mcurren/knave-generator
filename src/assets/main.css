@@ -48,7 +48,7 @@ a,
   }
 }
 
-.ability {
+/* .ability {
   position: relative;
 }
 .ability-swap {
@@ -65,6 +65,11 @@ a,
   .ability:hover .ability-swap {
     display: block;
   }
+} */
+
+.v-select .vs__selected ~ .vs__search,
+.v-select .vs__selected ~ .vs__search:focus {
+  display: none;
 }
 
 .icon {
@@ -78,4 +83,19 @@ a,
 }
 .edit-icon-hide:hover .editable ~ .icon {
   opacity: 1;
+}
+
+.user-action {
+  /* background-color: var(--vt-c-white);
+  border: 2px solid var(--vt-c-pink);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem; */
+  color: var(--vt-c-pink);
+  font-weight: 500;
+}
+
+@media print {
+  .print-hide {
+    display: none;
+  }
 }

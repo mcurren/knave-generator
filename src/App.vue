@@ -64,6 +64,18 @@ import CharacterName from "@/components/CharacterName.vue";
   padding: 0.25rem 0.5rem 0.2rem;
   line-height: 1;
 }
+@media (min-width: 64rem) {
+  .page-header,
+  .page-header section {
+    flex-wrap: nowrap;
+  }
+  .page-header section.name,
+  .page-header section.name div,
+  .page-header section.name input {
+    width: 100%;
+    margin: 0;
+  }
+}
 
 .section-header {
   font-family: "Pirata One";
@@ -80,7 +92,7 @@ import CharacterName from "@/components/CharacterName.vue";
   display: grid;
   gap: 2rem;
 }
-@media (min-width: 50.667rem) and (max-width: 63.933rem) {
+@media (min-width: 45rem) and (max-width: 63.999rem) {
   .main-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -118,6 +130,10 @@ import CharacterName from "@/components/CharacterName.vue";
 }
 
 @media print {
+  .page-header,
+  .page-header section {
+    flex-wrap: nowrap;
+  }
   .page-header section {
     align-items: baseline;
   }

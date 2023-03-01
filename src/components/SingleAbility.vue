@@ -1,6 +1,6 @@
 <script>
 import { rollDice } from "@/stores/rollDice.js";
-import SwapAbility from "./SwapAbility.vue";
+// import SwapAbility from "./SwapAbility.vue";
 
 export default {
   props: {
@@ -23,7 +23,7 @@ export default {
   },
   emits: ["ability-change"],
   components: {
-    SwapAbility,
+    // SwapAbility,
   },
   data() {
     return {
@@ -81,7 +81,7 @@ export default {
         </div>
       </div>
     </div>
-    <SwapAbility v-if="canSwap" :id="id" />
+    <!-- <SwapAbility v-if="canSwap" :id="id" /> -->
   </article>
 </template>
 

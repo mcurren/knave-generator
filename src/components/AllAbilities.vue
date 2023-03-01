@@ -1,7 +1,8 @@
 <script>
 import { mapStores } from "pinia";
 import { useCharacterStore } from "@/stores/sheet.js";
-import SingleAbility from "./SingleAbility.vue";
+import SwapAbilities from "@/components/SwapAbilities.vue";
+import SingleAbility from "@/components/SingleAbility.vue";
 
 export default {
   computed: {
@@ -15,6 +16,7 @@ export default {
   },
   components: {
     SingleAbility,
+    SwapAbilities,
   },
 };
 </script>
@@ -23,6 +25,7 @@ export default {
   <section class="abilities">
     <header class="section-header">
       <h2>Abilities</h2>
+      <SwapAbilities />
     </header>
     <div class="abilities-grid">
       <SingleAbility
@@ -43,6 +46,12 @@ export default {
 <style scoped>
 .abilities {
   margin: 2em 0;
+}
+@media (min-width: 65.333rem) {
+  .abilities header {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .abilities-grid {
   display: grid;

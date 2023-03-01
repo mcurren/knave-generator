@@ -87,6 +87,11 @@ export default {
 section > header {
   text-align: center;
 }
+@media (min-width: 45rem) {
+  section > header {
+    text-align: left;
+  }
+}
 .health-grid {
   display: grid;
   grid-template-columns: 1fr;
