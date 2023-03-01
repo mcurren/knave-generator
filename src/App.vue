@@ -14,8 +14,12 @@ import CharacterName from "@/components/CharacterName.vue";
   <header class="page-header hide-print">
     <h1>Knave 1.0 Character Generator</h1>
     <div class="button-group">
-      <button class="btn" onclick="window.print()">Print</button>
-      <button class="btn" onclick="location.reload()">New Character</button>
+      <button class="btn" onclick="window.print()" title="Print the page">
+        Print
+      </button>
+      <button class="btn" onclick="location.reload()" title="Reload the page">
+        New Character
+      </button>
     </div>
   </header>
 
