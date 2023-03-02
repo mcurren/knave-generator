@@ -11,6 +11,7 @@
   "dependencies": {
     "pinia": "^2.0.28",
     "vue": "^3.2.45",
+    "vue-final-modal": "^4.0.8",
     "vue-select": "^4.0.0-beta.6"
   },
   "devDependencies": {

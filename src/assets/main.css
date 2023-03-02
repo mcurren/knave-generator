@@ -123,3 +123,32 @@ a,
   color: var(--vt-c-pink);
   font-weight: 500;
 }
+
+.confirm-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.confirm-modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: var(--color-background);
+  border-radius: 0.5rem;
+  color: var(--color-text);
+}
+.confirm-modal-content > * + * {
+  margin: 0.5rem 0;
+}
+.confirm-modal-content h1 {
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+.confirm-modal-content .modal-footer {
+  display: flex;
+  margin-left: 1rem;
+  justify-content: flex-end;
+}
+.confirm-modal-content .modal-button {
+  margin-left: 0.75rem;
+}
