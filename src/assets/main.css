@@ -6,6 +6,12 @@
   padding: var(--section-spacing);
   font-weight: normal;
 }
+@media (orientation: landscape) and (max-height: 450px) {
+  /* for the notch */
+  #app {
+    padding: var(--section-spacing) var(--section-spacing-xl);
+  }
+}
 
 *:focus-visible {
   outline: 2px solid var(--vt-c-green);

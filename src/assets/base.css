@@ -43,6 +43,7 @@
   --color-icon: var(--color-border);
 
   --section-spacing: 1.5rem;
+  --section-spacing-xl: 2.54rem;
 }
 
 @media (prefers-color-scheme: dark) {
