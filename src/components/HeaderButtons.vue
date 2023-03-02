@@ -1,10 +1,10 @@
 <script setup>
 import { useModal } from "vue-final-modal";
-import ModalConfirm from "./ModalConfirm.vue";
+import ModalConfirm from "@/components/ModalConfirm.vue";
+
 const { open, close } = useModal({
   component: ModalConfirm,
   attrs: {
-    title: "Are you sure?",
     onConfirm() {
       location.reload();
     },

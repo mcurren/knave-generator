@@ -1,9 +1,13 @@
 <script setup>
 import { VueFinalModal } from "vue-final-modal";
+
 const props = defineProps({
-  title: String,
+  title: {
+    type: String,
+    default: "Are you sure?",
+  },
 });
-const emit = defineEmits(["confirm", "cancel"]);
+const emit = defineEmits(["confirm", "cancel", "close"]);
 </script>
 
 <template>
@@ -12,6 +16,7 @@ const emit = defineEmits(["confirm", "cancel"]);
     content-class="confirm-modal-content"
     overlay-transition="vfm-fade"
     content-transition="vfm-fade"
+    @closed="emit('close')"
   >
     <div class="modal-header">
       <h1>{{ props.title }}</h1>

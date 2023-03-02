@@ -4,18 +4,21 @@ import vSelect from "vue-select";
 import { useCharacterStore } from "@/stores/sheet.js";
 import SwapIcon from "@/components/icons/SwapIcon.vue";
 import InfoIcon from "@/components/icons/InfoIcon.vue";
+import ModalConfirm from "@/components/ModalConfirm.vue";
 
 export default {
   data() {
     return {
       choiceA: null,
       choiceB: null,
+      showModal: false,
     };
   },
   components: {
     vSelect,
     SwapIcon,
     InfoIcon,
+    ModalConfirm,
   },
   computed: {
     ...mapStores(useCharacterStore),
@@ -27,15 +30,26 @@ export default {
     canSwap() {
       return this.characterStore.sheet.canSwapAbility;
     },
+    modalTitle() {
+      return this.choiceA !== null && this.choiceB !== null
+        ? `Swap ${this.choiceA.label} and ${this.choiceB.label}?`
+        : "Are you sure?";
+    },
   },
   methods: {
-    handleDeselect(option) {
-      console.log(option);
+    confirmSwap() {
+      if (this.choiceA !== null && this.choiceB !== null) {
+        this.showModal = true;
+      }
     },
     handleSwap() {
-      if (this.choiceA !== null && this.choiceB !== null) {
-        this.characterStore.swapAbilities(this.choiceA.id, this.choiceB.id);
-      }
+      this.showModal = false;
+      this.characterStore.swapAbilities(this.choiceA.id, this.choiceB.id);
+    },
+    cancelSwap() {
+      this.showModal = false;
+      this.choiceA = null;
+      this.choiceB = null;
     },
   },
 };
@@ -55,7 +69,7 @@ export default {
           :options="options"
           v-model="choiceA"
           placeholder="Choose..."
-          @option:selected="handleSwap"
+          @option:selected="confirmSwap"
         />
       </span>
       <SwapIcon alt="swap with" color="var(--vt-c-pink)" />
@@ -64,11 +78,20 @@ export default {
           :options="options"
           v-model="choiceB"
           placeholder="Choose..."
-          @option:selected="handleSwap"
+          @option:selected="confirmSwap"
         />
       </span>
     </div>
   </aside>
+  <ModalConfirm
+    v-model="showModal"
+    @confirm="handleSwap"
+    @cancel="cancelSwap"
+    @close="cancelSwap"
+    :title="modalTitle"
+  >
+    <p>You can only swap ability scores once, and this cannot be undone.</p>
+  </ModalConfirm>
 </template>
 
 <style>
