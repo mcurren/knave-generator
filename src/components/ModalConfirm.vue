@@ -55,12 +55,6 @@ const emit = defineEmits(["confirm", "cancel"]);
   font-size: 1.375rem;
   font-weight: 600;
 }
-/* .confirm-modal-content button {
-  margin: 0.25rem 0 0 auto;
-  padding: 0 8px;
-  border: 1px solid;
-  border-radius: 0.5rem;
-} */
 .modal-footer {
   display: flex;
   margin-left: 1rem;
