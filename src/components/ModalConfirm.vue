@@ -34,33 +34,4 @@ const emit = defineEmits(["confirm", "cancel"]);
   </VueFinalModal>
 </template>
 
-<style>
-.confirm-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.confirm-modal-content {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background: var(--color-background);
-  border-radius: 0.5rem;
-  color: var(--color-text);
-}
-.confirm-modal-content > * + * {
-  margin: 0.5rem 0;
-}
-.confirm-modal-content h1 {
-  font-size: 1.375rem;
-  font-weight: 600;
-}
-.modal-footer {
-  display: flex;
-  margin-left: 1rem;
-  justify-content: flex-end;
-}
-.modal-button {
-  margin-left: 0.75rem;
-}
-</style>
+<style></style>
