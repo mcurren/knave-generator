@@ -1,6 +1,5 @@
 <script setup>
-import "vue-select/dist/vue-select.css";
-
+import { ModalsContainer } from "vue-final-modal";
 import AllAbilities from "@/components/AllAbilities.vue";
 import AllHealth from "@/components/AllHealth.vue";
 import AllTraits from "@/components/AllTraits.vue";
@@ -8,19 +7,13 @@ import AllInventory from "@/components/AllInventory.vue";
 import AllArmor from "@/components/AllArmor.vue";
 import CharacterLevel from "@/components/CharacterLevel.vue";
 import CharacterName from "@/components/CharacterName.vue";
+import HeaderButtons from "@/components/HeaderButtons.vue";
 </script>
 
 <template>
   <header class="page-header hide-print">
     <h1>Knave 1.0 Character Generator</h1>
-    <div class="button-group">
-      <button class="btn" onclick="window.print()" title="Print the page">
-        Print
-      </button>
-      <button class="btn" onclick="location.reload()" title="Reload the page">
-        New Character
-      </button>
-    </div>
+    <HeaderButtons />
   </header>
 
   <main>
@@ -58,6 +51,8 @@ import CharacterName from "@/components/CharacterName.vue";
       <a href="https://curren.me" target="_blank">michaelopolis</a>
     </p>
   </footer>
+
+  <ModalsContainer />
 </template>
 
 <style>
