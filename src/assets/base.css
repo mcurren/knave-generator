@@ -41,6 +41,8 @@
   --color-heading: var(--vt-c-text-light-2);
   --color-text: var(--vt-c-text-light-1);
   --color-icon: var(--color-border);
+  --color-button: var(--vt-c-pink);
+  --color-button-inverse-hover: #AD265E;
 
   --section-spacing: 1.5rem;
   --section-spacing-xl: 2.54rem;
@@ -59,6 +61,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
     --color-icon: var(--color-border);
+    --color-button-inverse-hover: #D6417F;
   }
 }
 

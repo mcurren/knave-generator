@@ -31,7 +31,7 @@ const emit = defineEmits(["confirm", "cancel", "close"]);
       </button>
       <button
         @click="emit('confirm')"
-        class="btn modal-button modal-button--ok"
+        class="btn btn--inverse modal-button modal-button--ok"
       >
         Ok
       </button>

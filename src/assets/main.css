@@ -25,25 +25,37 @@ a,
 }
 
 .btn {
-  border: 2px solid var(--vt-c-pink);
+  border: 2px solid var(--color-button);
   border-radius: 2rem;
   background: var(--color-background);
-  color: var(--vt-c-pink);
+  color: var(--color-button);
   padding: 0.4rem 1.25rem;
   font-size: 1.2rem;
   cursor: pointer;
   will-change: color, background;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: all 0.3s ease;
 }
 .btn:hover,
 .btn:focus,
 .btn:active,
 .btn:focus-visible {
-  background: var(--vt-c-pink);
+  background: var(--color-button);
   color: var(--color-background);
 }
 
-@media (max-width: 63.938rem) {
+.btn--inverse {
+  background: var(--color-button);
+  color: var(--color-background);
+  will-change: border-color, background;
+}
+.btn--inverse:hover,
+.btn--inverse:focus,
+.btn--inverse:active,
+.btn--inverse:focus-visible {
+  --color-button: var(--color-button-inverse-hover);
+}
+
+@media (max-width: 64rem) {
   .hide-mobile {
     display: none;
   }
@@ -132,10 +144,12 @@ a,
 .confirm-modal-content {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   background: var(--color-background);
   border-radius: 0.5rem;
   color: var(--color-text);
+  width: 450px;
+  max-width: 95%;
 }
 .confirm-modal-content > * + * {
   margin: 0.5rem 0;

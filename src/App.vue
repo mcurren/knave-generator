@@ -12,7 +12,7 @@ import HeaderButtons from "@/components/HeaderButtons.vue";
 
 <template>
   <header class="page-header hide-print">
-    <h1>Knave 1.0 Character Generator</h1>
+    <h1>Knave Character Generator</h1>
     <HeaderButtons />
   </header>
 
@@ -47,8 +47,11 @@ import HeaderButtons from "@/components/HeaderButtons.vue";
         target="_blank"
         >Knave 1.0</a
       >
-      by Ben Milton <span class="sep">|</span> Site by
-      <a href="https://curren.me" target="_blank">michaelopolis</a>
+      created by Ben Milton.
+    </p>
+    <p>
+      Site made by
+      <a href="https://curren.me" target="_blank">michaelopolis</a>.
     </p>
   </footer>
 
@@ -65,10 +68,13 @@ header.page-header {
 header.page-header h1 {
   font-size: 3.2rem;
   line-height: 1.2;
-  /* color: inherit; */
+}
+header.page-header .button-group {
+  display: flex;
 }
 header.page-header .button-group button {
   margin-right: 1rem;
+  white-space: nowrap;
 }
 @media (min-width: 59rem) {
   header.page-header {
@@ -87,8 +93,14 @@ header.page-header .button-group button {
 .page-footer {
   font-size: 0.9rem;
 }
-.page-footer .sep {
-  padding: 0 0.5rem;
+.page-footer p {
+  line-height: 1.6;
+  margin: 0.25rem 0;
+}
+@media (min-width: 48rem) {
+  .page-footer p {
+    display: inline;
+  }
 }
 
 .sheet-header {
