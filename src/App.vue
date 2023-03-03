@@ -66,7 +66,7 @@ header.page-header {
   flex-direction: column;
 }
 header.page-header h1 {
-  font-size: 3.2rem;
+  font-size: 3.4rem;
   line-height: 1.2;
 }
 header.page-header .button-group {
